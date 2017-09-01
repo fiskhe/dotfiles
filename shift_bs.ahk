@@ -1,0 +1,5 @@
+
+
+
+Capslock::Ctrl
+Ctrl::Capslock
