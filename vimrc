@@ -48,3 +48,10 @@ endfunction
 autocmd CursorMoved,CursorMovedI * call s:Cursor_Moved()
 let g:last_pos = 0
 "THESE ARE THE EDITS I HAVE MADE 
+
+" Make <C-Backspace> map tp <C-w>
+inoremap <F5> <C-w>
+inoremap <C-F5> <C-w>
+inoremap <F17> <C-w>
+inoremap <C-F17> <C-w>
+nnoremap <C-F17> <C-w>

@@ -76,4 +76,10 @@ alias gw="gren -w"
 alias fren="gren -F30"
 alias fw="fren -w"
 
+# ls aliases.
+alias ls="ls --color"
+
+# Cygwin 
+alias open="cygstart.exe"
+
 # Common location aliases.
