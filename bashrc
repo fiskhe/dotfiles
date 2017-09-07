@@ -4,6 +4,10 @@
 # Git aliases.
 #------------------------------------------------------------------------------
 
+#This is ME
+alias gallcm="git add .; git commit -m "
+#This is ME
+
 alias gclone="git clone"
 alias gls="git ls-files"
 alias gsh="git show"
@@ -78,6 +82,9 @@ alias fw="fren -w"
 
 # ls aliases.
 alias ls="ls --color"
+
+# Vim aliases.
+alias v="vim"
 
 # Cygwin 
 alias open="cygstart.exe"

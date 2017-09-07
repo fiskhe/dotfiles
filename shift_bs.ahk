@@ -1,3 +1,5 @@
+; Autohotkey
+
 Capslock::Ctrl
 Ctrl::Capslock
 
@@ -12,8 +14,7 @@ return
 ;------------------------------------------------------------------------------
 ; putty, mintty
 ;------------------------------------------------------------------------------
-;#If WinActive("ahk_class PuTTY") or WinActive("ahk_class mintty")
-#If WinActive("ahk_class mintty")
+#If WinActive("ahk_class PuTTY") or WinActive("ahk_class mintty")
 
 ;SetStoreCapslockMode, off
 ;

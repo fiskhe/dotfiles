@@ -3,8 +3,7 @@ set term=xterm-256color	"This is sooo needed for my eyes!
 colors molokai		"Seriously though
 set number
 set foldmethod=indent
-set shiftwidth=5
-set 
+set shiftwidth=8
 
 "filetype off
 
@@ -20,15 +19,18 @@ Plugin 'VundleVim/Vundle.vim'
 " PLUGINS GALORE BELOW!
 Plugin 'scrooloose/nerdtree'	" A tree explorer plugin for vim
 
+" Shortcuts for commenting.
+Plugin 'tomtom/tcomment_vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"THESE ARE MY ABBREVIATIONS
+" Common abbreviation
 abbr teh the
 abbr ntree NERDTree
 abbr desktop /cygdrive/c/users/fiskh/desktop 
-"
+abbr ret return
 
 function s:Cursor_Moved()
   let cur_pos = winline()
@@ -50,8 +52,25 @@ let g:last_pos = 0
 "THESE ARE THE EDITS I HAVE MADE 
 
 " Make <C-Backspace> map tp <C-w>
-inoremap <F5> <C-w>
+" inoremap <F5> <C-w>
 inoremap <C-F5> <C-w>
 inoremap <F17> <C-w>
 inoremap <C-F17> <C-w>
 nnoremap <C-F17> <C-w>
+
+
+
+" 'jk' is escape
+inoremap Jk <C-]><esc>
+inoremap JK <C-]><esc>
+inoremap jk <C-]><esc>
+inoremap kj <C-]><esc>
+
+" Remap common actions.
+let mapleader = "\<Space>"
+
+" Shortcut for write.
+nnoremap <Leader>e :w<CR>
+
+" Shortcut for write.
+nnoremap <Leader>f :q!<CR>
