@@ -3,7 +3,9 @@ set term=xterm-256color	"This is sooo needed for my eyes!
 colors molokai		"Seriously though
 set number
 set foldmethod=indent
-set shiftwidth=8
+set softtabstop=4
+set shiftwidth=4
+set expandtab
 
 "filetype off
 
