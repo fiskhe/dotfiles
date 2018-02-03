@@ -5,7 +5,12 @@
 #------------------------------------------------------------------------------
 
 #This is ME
-alias gallcm="git add .; git commit -m "
+alias gac="git add .; git commit -m"
+alias dsk="cd /cygdrive/c/users/fiskh/desktop"
+alias py="python3"
+alias py2="python"
+alias la="ls -al"
+alias ref=". ~/.bashrc"
 #This is ME
 
 alias gclone="git clone"
