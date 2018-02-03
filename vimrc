@@ -27,6 +27,9 @@ Plugin 'tomtom/tcomment_vim'
 " <tab> completion
 Plugin 'ervandew/supertab'
 
+" LaTeX plugin
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required

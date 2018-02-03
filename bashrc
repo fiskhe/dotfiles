@@ -11,6 +11,7 @@ alias py="python3"
 alias py2="python"
 alias la="ls -al"
 alias ref=". ~/.bashrc"
+alias d="cd"
 #This is ME
 
 alias gclone="git clone"
