@@ -8,8 +8,7 @@ set shiftwidth=4
 set expandtab
 
 " Because I use the same commands a lot sometimes
-nnoremap : :<Up>
-nnoremap :: :
+nnoremap :: :<Up>
 
 " PLOOOOOGIIIINDSSS
 filetype plugin on
@@ -33,9 +32,11 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'ervandew/supertab'
 
 " LaTeX plugin
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'LaTeX-Box-Team/LaTeX-Box' " All of your Plugins must be added before the following line
 
-" All of your Plugins must be added before the following line
+" All the colorschemes pls
+Plugin 'flazz/vim-colorschemes'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -66,7 +67,7 @@ let g:last_pos = 0
 "THESE ARE THE EDITS I HAVE MADE 
 
 " Make <C-Backspace> map tp <C-w>
-" inoremap <F5> <C-w>
+inoremap <F5> <C-w>
 inoremap <C-F5> <C-w>
 inoremap <F17> <C-w>
 inoremap <C-F17> <C-w>
@@ -101,6 +102,5 @@ nnoremap <Leader>ll :Latexmk<CR>
 inoremap beso \beginsong{}[]<CR><Backspace>\endsong<ESC>k$ba
 " Beginverse shortcut for song package
 inoremap beve \beginverse<CR><Backspace>\endverse<ESC>k
-
 
 
