@@ -5,7 +5,7 @@ set number
 set foldmethod=indent
 set softtabstop=4
 set shiftwidth=4
-set noexpandtab
+set expandtab
 
 " Because I use the same commands a lot sometimes
 nnoremap : :<Up>
