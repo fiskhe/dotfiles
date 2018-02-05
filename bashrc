@@ -1,9 +1,4 @@
 
-# Git aliases.
-#------------------------------------------------------------------------------
-# Git aliases.
-#------------------------------------------------------------------------------
-
 #This is ME
 alias gac="git add .; git commit -m"
 alias dsk="cd /cygdrive/c/users/fiskh/desktop"
@@ -14,6 +9,11 @@ alias ref=". ~/.bashrc"
 alias d="cd"
 #This is ME
 
+
+# Git aliases.
+#------------------------------------------------------------------------------
+# Git aliases.
+#------------------------------------------------------------------------------
 alias gclone="git clone"
 alias gls="git ls-files"
 alias gsh="git show"

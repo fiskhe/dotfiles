@@ -7,7 +7,12 @@ set softtabstop=4
 set shiftwidth=4
 set noexpandtab
 
-"filetype off
+" Because I use the same commands a lot sometimes
+nnoremap : :<Up>
+nnoremap :: :
+
+" PLOOOOOGIIIINDSSS
+filetype plugin on
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -72,7 +77,7 @@ nnoremap <C-F17> <C-w>
 " 'jk' is escape
 inoremap Jk <C-]><esc>
 inoremap JK <C-]><esc>
-inoremap jk <C-]><esc>
+inoremap jk x<Backspace><C-]><esc>
 inoremap kj <C-]><esc>
 
 " Remap common actions.
@@ -81,5 +86,21 @@ let mapleader = "\<Space>"
 " Shortcut for write.
 nnoremap <Leader>e :w<CR>
 
-" Shortcut for write.
+" Shortcut for close without writing.
 nnoremap <Leader>f :q!<CR>
+
+" Shortcut for moving to first char of line.
+nnoremap B ^
+
+
+"THESE ARE THE EDITS I HAVE MADE (TOO)
+"LaTeX shortcuts
+" Compile to pdf with latexmk
+nnoremap <Leader>ll :Latexmk<CR>
+" Beginsong shortcut for song package
+inoremap beso \beginsong{}[]<CR><Backspace>\endsong<ESC>k$ba
+" Beginverse shortcut for song package
+inoremap beve \beginverse<CR><Backspace>\endverse<ESC>k
+
+
+
