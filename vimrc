@@ -28,8 +28,7 @@ set listchars=tab:▸\ ,trail:·,precedes:←,extends:→
 " set listchars=tab:»-,trail:·,eol:¶,extends:>,precedes:<
 
 " Because I use the same commands a lot sometimes
-nnoremap : :<Up>
-nnoremap :: :
+nnoremap :: :<Up>
 
 " PLOOOOOGIIIINDSSS
 filetype plugin on
@@ -53,7 +52,10 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'ervandew/supertab'
 
 " LaTeX plugin
-Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'LaTeX-Box-Team/LaTeX-Box' " All of your Plugins must be added before the following line
+
+" All the colorschemes pls
+Plugin 'flazz/vim-colorschemes'
 
 " Vim airline
 Plugin 'vim-airline/vim-airline'
@@ -121,7 +123,7 @@ let g:last_pos = 0
 "THESE ARE THE EDITS I HAVE MADE 
 
 " Make <C-Backspace> map tp <C-w>
-" inoremap <F5> <C-w>
+inoremap <F5> <C-w>
 inoremap <C-F5> <C-w>
 inoremap <F17> <C-w>
 inoremap <C-F17> <C-w>
@@ -163,5 +165,4 @@ inoremap moen \indextitleentry[modidx]{}<ESC>i
 
 " Run python 3
 autocmd FileType python nnoremap <Leader>r :exec '!python3' shellescape(@%, 1)<cr>
-
 
