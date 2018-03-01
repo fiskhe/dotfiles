@@ -2,10 +2,30 @@
 set term=xterm-256color	"This is sooo needed for my eyes!
 colors molokai		"Seriously though
 set number
+set ruler
 set foldmethod=indent
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+set scrolloff=5
+set sidescrolloff=5
+set noerrorbells
+set ignorecase
+
+set list
+" Shows dots for spaces and triangles for tabs
+set listchars=tab:▸\ ,trail:·,precedes:←,extends:→
+" 
+" Shows dots for spaces and double arrows for tabs
+" set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
+" 
+" set showbreak=\\ " [bonus]
+" set listchars=tab:..,trail:_,extends:>,precedes:<,nbsp:~
+" 
+" set showbreak=↪\ 
+" set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+"
+" set listchars=tab:»-,trail:·,eol:¶,extends:>,precedes:<
 
 " Because I use the same commands a lot sometimes
 nnoremap : :<Up>
@@ -35,9 +55,44 @@ Plugin 'ervandew/supertab'
 " LaTeX plugin
 Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
+" Vim airline
+Plugin 'vim-airline/vim-airline'
+
+" Moves through camelcased words n stuff
+Plugin 'vim-scripts/camelcasemotion'
+
+" Line indentation indicator (MWAH YES)
+Plugin 'nathanaelkane/vim-indent-guides'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let g:indent_guides_guide_size=1
+let g:indent_guides_auto_colors=0
+hi IndentGuidesEven ctermbg=240
+hi IndentGuidesOdd ctermbg=237
+" hi Number ctermfg=203
+"https://alvinalexander.com/linux/vi-vim-editor-color-scheme-syntax
+"
+"PROPER SYNTAX HIGHLIGHTING
+hi Argument ctermfg=36 cterm=italic
+"Javscript
+autocmd FileType javascript syn keyword Special console
+autocmd FileType javascript syn match Number '\d'
+autocmd FileType javascript syn match Special '[0-9a-zA-Z]' contained
+autocmd FileType javascript syn match MethodCall '\.\([0-9a-zA-Z]\{-}\)(' contains=Special "MethodCall does not exist
+autocmd FileType javascript syn match Operator '?\|:' contained
+autocmd FileType javascript syn match TernaryOperator '?.\{-}:' contains=Operator "TernaryOperator does not exist
+autocmd FileType javascript syn match Operator '&\|<\|>\||\|!\|+\|=\|-'
+autocmd FileType javascript syn match Argument '\<.\{-}\>' contained
+autocmd FileType javascript syn match ArgComma ',' contained
+" autocmd FileType javascript syn keyword Number 'function' contained
+autocmd FileType javascript syn match ArgumentsPlural '(\<.\{-}\>\{-})\s\{-}{' contains=ALL,Number
+autocmd FileType javascript syn match Number '\d'
+
+" Python
+autocmd FileType Python syn keyword Special print
 
 " Common abbreviation
 abbr teh the
@@ -101,6 +156,12 @@ nnoremap <Leader>ll :Latexmk<CR>
 inoremap beso \beginsong{}[]<CR><Backspace>\endsong<ESC>k$ba
 " Beginverse shortcut for song package
 inoremap beve \beginverse<CR><Backspace>\endverse<ESC>k
+" Put in hymn index
+inoremap hyen \indextitleentry[hymnidx]{}<ESC>i
+" Put in modern index
+inoremap moen \indextitleentry[modidx]{}<ESC>i
 
+" Run python 3
+autocmd FileType python nnoremap <Leader>r :exec '!python3' shellescape(@%, 1)<cr>
 
 
