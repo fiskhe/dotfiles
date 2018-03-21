@@ -9,6 +9,7 @@ alias ref=". ~/.bashrc"
 alias d="cd"
 #This is ME
 
+. ~/dotfiles/jasonbashrc
 
 # Git aliases.
 #------------------------------------------------------------------------------
