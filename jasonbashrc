@@ -119,7 +119,8 @@ fi
 if [ "$color_prompt" = yes ]; then
     prompt_break="********************************************************************************"
     if [[ $(whoami) == "root" ]]; then
-        PS1=''$BYellow'${prompt_break}\n'$BRed'$(parse_git_branch)'$BWhite'['$BRed'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
+        # PS1=''$BYellow'${prompt_break}\n'$BRed'$(parse_git_branch)'$BWhite'['$BRed'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
+        PS1=''$BYellow'${prompt_break}\n'$BWhite'['$BRed'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
     else
         PS1=''$BGreen'${prompt_break}\n'$BRed'$(parse_git_branch)'$BWhite'['$BGreen'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
     fi

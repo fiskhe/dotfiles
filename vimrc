@@ -1,6 +1,5 @@
 "THESE ARE THE EDITS I HAVE MADE
 set term=xterm-256color	"This is sooo needed for my eyes!
-colors molokai		"Seriously though
 set number
 set ruler
 set foldmethod=indent
@@ -11,6 +10,7 @@ set scrolloff=5
 set sidescrolloff=5
 set noerrorbells
 set ignorecase
+set hlsearch
 
 set list
 " Shows dots for spaces and triangles for tabs
@@ -69,6 +69,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+colors molokai		"Seriously though
 
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
