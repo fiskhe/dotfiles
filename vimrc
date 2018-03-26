@@ -10,6 +10,7 @@ set scrolloff=5
 set sidescrolloff=5
 set noerrorbells
 set ignorecase
+set hlsearch
 
 set list
 " Shows dots for spaces and triangles for tabs

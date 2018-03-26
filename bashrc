@@ -8,8 +8,10 @@ alias l="ls"
 alias la="ls -al"
 alias ref=". ~/.bashrc"
 alias d="cd"
+alias lsd="ls -d */"
 #This is ME
 
+. ~/dotfiles/jasonbashrc
 
 # Git aliases.
 #------------------------------------------------------------------------------
