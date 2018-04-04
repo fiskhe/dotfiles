@@ -6,7 +6,7 @@ set foldmethod=indent
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set scrolloff=5
+set scrolloff=10
 set sidescrolloff=5
 set noerrorbells
 set ignorecase
@@ -44,6 +44,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 " PLUGINS GALORE BELOW!
 Plugin 'scrooloose/nerdtree'	" A tree explorer plugin for vim
+
+" Syntax checker
+" Plugin 'scrooloose/syntastic'
 
 " Shortcuts for commenting.
 Plugin 'tomtom/tcomment_vim'

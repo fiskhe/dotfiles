@@ -9,6 +9,7 @@ alias la="ls -al"
 alias ref=". ~/.bashrc"
 alias d="cd"
 alias lsd="ls -d */"
+alias sra="source activate tguoenv"
 #This is ME
 
 . ~/dotfiles/jasonbashrc
