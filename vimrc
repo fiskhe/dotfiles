@@ -103,7 +103,7 @@ autocmd FileType Python syn keyword Special print
 
 " Common abbreviation
 abbr teh the
-abbr ntree NERDTree
+abbr ntr NERDTree
 abbr desktop /cygdrive/c/users/fiskh/desktop 
 abbr ret return
 
