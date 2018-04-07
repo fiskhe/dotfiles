@@ -1,7 +1,8 @@
 
+export PATH=$PATH:~/bin
 #This is ME
 alias gac="git add .; git commit -m"
-alias dsk="cd /cygdrive/c/users/fiskh/desktop"
+# alias dsk="cd /cygdrive/c/users/fiskh/desktop"
 alias py="python3"
 alias py2="python"
 alias l="ls"
@@ -11,7 +12,8 @@ alias d="cd"
 alias lsd="ls -d */"
 #This is ME
 
-. ~/dotfiles/jasonbashrc
+# . ~/dotfiles/jasonbashrc
+. ~/dotfiles/bashclrs
 
 # Git aliases.
 #------------------------------------------------------------------------------
@@ -99,3 +101,4 @@ alias v="vim"
 alias open="cygstart.exe"
 
 # Common location aliases.
+alias dsk="cd /mnt/c/Users/fiskh/Desktop"
