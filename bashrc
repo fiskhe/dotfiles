@@ -1,19 +1,10 @@
 
-export PATH=$PATH:~/bin
-#This is ME
-alias gac="git add .; git commit -m"
-# alias dsk="cd /cygdrive/c/users/fiskh/desktop"
-alias py="python3"
-alias py2="python"
-alias l="ls"
-alias la="ls -al"
-alias ref=". ~/.bashrc"
-alias d="cd"
-alias lsd="ls -d */"
-#This is ME
+# if [ $PATH
+# export PATH=$PATH:~/bin
+# chmod +x ~/bin/lol
 
-# . ~/dotfiles/jasonbashrc
-. ~/dotfiles/bashclrs
+. ~/dotfiles/colors
+. ~/dotfiles/aliases
 
 # Git aliases.
 #------------------------------------------------------------------------------
