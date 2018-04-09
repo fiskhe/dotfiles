@@ -1,0 +1,50 @@
+#!/bin/bash
+NiceGreen='\[\e[38;5;118m\]'
+NiceRed='\[\e[38;5;197m\]'
+NiceOrange='\[\e[38;5;208m\]'
+NiceBlue='\[\e[38;5;37m\]' # 39 is nice too
+Periwinkle='\[\e[38;5;74m\]' # 75 is a slightly darker shade
+Salmon='\[\e[38;5;203m\]'
+VeryLightSalmon='\[\e[38;5;216m\]'
+VeryLightBlue='\[\e[38;5;159m\]'
+ExceedinglyLightBlue='\[\e[38;5;158m\]'
+
+ # Template for a 256 color thing
+color='\[\e[38;5;m\]'
+
+# Displays all 256 colors in console
+function clr() {
+    for i in {1..256}
+    do 
+        echo -e "\e[38;5;${i}m #${i}\c"
+    done
+    echo \n
+}
+
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# check for color support for the prompt:
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf
+    color_prompt=yes
+else
+    color_prompt=
+fi
+
+if [ "$color_prompt" = yes ]; then
+    # The below is fancy
+    # prompt_break="---------------~+#@#+~>~>~~+++++>>>>>$%>>>++~~-- - - · · · · · · · · · · · · · · · · · · · · · · · · · · · ·"
+    # THe below is not (as) fancy
+    prompt_break=" · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·"
+    if [[ $(whoami) == "root" ]]; then
+        PS1=''$NiceGreen'${prompt_break}\n'$Periwinkle'['$NiceRed'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle']>~\n'$NiceRed'$ '$ExceedinglyLightBlue''
+    else
+        PS1=''$NiceBlue'${prompt_break}\n'$Periwinkle'['$NiceGreen'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle']>~\n'$NiceRed'$ '$VeryLightBlue''
+    fi
+fi
+
+unset color_prompt
