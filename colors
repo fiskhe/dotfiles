@@ -12,6 +12,11 @@ ExceedinglyLightBlue='\[\e[38;5;158m\]'
  # Template for a 256 color thing
 color='\[\e[38;5;m\]'
 
+# I crack me up
+lenny="( ͡° ͜ʖ ͡°)"
+shrug="¯\\_(ツ)_/¯"
+um="ಠ_ಠ"
+
 # Displays all 256 colors in console
 function clr() {
     for i in {1..256}
@@ -41,7 +46,8 @@ if [ "$color_prompt" = yes ]; then
     # THe below is not (as) fancy
     prompt_break=" · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·"
     if [[ $(whoami) == "root" ]]; then
-        PS1=''$NiceGreen'${prompt_break}\n'$Periwinkle'['$NiceRed'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle'] (:\n'$NiceRed'$ '$ExceedinglyLightBlue''
+        # PS1=''$NiceGreen'${prompt_break}\n'$Periwinkle'['$NiceRed'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle'] (:\n'$NiceRed'$ '$ExceedinglyLightBlue''
+        PS1=''$NiceGreen'${prompt_break}\n'$Periwinkle'['$NiceRed'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle'] '$lenny' haha \n'$NiceRed'$ '$ExceedinglyLightBlue''
     else
         PS1=''$NiceBlue'${prompt_break}\n'$Periwinkle'['$NiceGreen'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle']>~\n'$NiceRed'$ '$VeryLightBlue''
     fi
