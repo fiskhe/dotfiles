@@ -1,3 +1,4 @@
+#!/bin/bash
 
 alias py="python"
 alias ll="ls"
@@ -119,10 +120,15 @@ fi
 if [ "$color_prompt" = yes ]; then
     prompt_break="********************************************************************************"
     if [[ $(whoami) == "root" ]]; then
+        # The one below doesn't work.
         # PS1=''$BYellow'${prompt_break}\n'$BRed'$(parse_git_branch)'$BWhite'['$BRed'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
-        PS1=''$BYellow'${prompt_break}\n'$BWhite'['$BRed'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
+        # PS1=''$BYellow'${prompt_break}\n'$BWhite'['$BRed'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
+        #me
+        PS1=''$Color1'${prompt_break}\n'$Color'['$BRed'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
+        # PS1=''\[\e[38;5;82\]'${prompt_break}\n'\[\e[38;5;198\]'['$BRed'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
     else
-        PS1=''$BGreen'${prompt_break}\n'$BRed'$(parse_git_branch)'$BWhite'['$BGreen'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
+        # PS1=''$BGreen'${prompt_break}\n'$BRed'$(parse_git_branch)'$BWhite'['$BGreen'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
+        PS1=''$BGreen'${prompt_break}\n'$BWhite'['$BGreen'\u'$BPurple'@\h:'$BBlue'\w'$BWhite']\n'$BRed'$ '$Default''
     fi
     export PS1
 else

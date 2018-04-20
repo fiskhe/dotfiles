@@ -1,4 +1,6 @@
-
+# if [ $PATH
+# export PATH=$PATH:~/bin
+# chmod +x ~/bin/lol
 #This is ME
 alias gac="git add .; git commit -m"
 alias dsk="cd /cygdrive/c/users/fiskh/desktop"
@@ -9,9 +11,12 @@ alias la="ls -al"
 alias ref=". ~/.bashrc"
 alias d="cd"
 alias lsd="ls -d */"
+alias sra="source activate tguoenv"
+alias neo="neopulse"
 #This is ME
 
-. ~/dotfiles/jasonbashrc
+. ~/dotfiles/colors
+. ~/dotfiles/aliases
 
 # Git aliases.
 #------------------------------------------------------------------------------
@@ -99,3 +104,4 @@ alias v="vim"
 alias open="cygstart.exe"
 
 # Common location aliases.
+alias dsk="cd /mnt/c/Users/fiskh/Desktop"
