@@ -13,9 +13,12 @@ alias d="cd"
 alias lsd="ls -d */"
 alias sra="source activate tguoenv"
 alias neo="neopulse"
+alias into="ssh -i tina-test.pem"
 #This is ME
 
+# Controls colors * $PS1 (prompt for shell)
 . ~/dotfiles/colors
+# Aliases! (wip)
 . ~/dotfiles/aliases
 
 # Git aliases.
@@ -50,6 +53,7 @@ alias gl="git log --pretty=fuller"
 alias gcp="git cherry-pick"
 alias gap="git apply"
 alias gs.="git status ."
+
 ggo() {
   git grep $@ -- "*.go"
 }
