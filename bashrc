@@ -19,7 +19,12 @@ alias ref=". ~/.bashrc"
 alias d="cd"
 alias lsd="ls -d */"
 alias sra="source activate tguoenv"
+
 alias neo="neopulse"
+alias nl="neo list"
+alias nv="neo visualize"
+alias nt="neo train -p"
+=======
 alias into="ssh -i tina-test.pem"
 #This is ME
 
