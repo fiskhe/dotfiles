@@ -17,9 +17,13 @@ alias neo="neopulse"
 alias nl="neo list"
 alias nv="neo visualize"
 alias nt="neo train -p"
+=======
+alias into="ssh -i tina-test.pem"
 #This is ME
 
+# Controls colors * $PS1 (prompt for shell)
 . ~/dotfiles/colors
+# Aliases! (wip)
 . ~/dotfiles/aliases
 
 # Git aliases.
@@ -54,6 +58,7 @@ alias gl="git log --pretty=fuller"
 alias gcp="git cherry-pick"
 alias gap="git apply"
 alias gs.="git status ."
+
 ggo() {
   git grep $@ -- "*.go"
 }

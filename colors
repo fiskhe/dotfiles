@@ -12,6 +12,9 @@ ExceedinglyLightBlue='\[\e[38;5;158m\]'
  # Template for a 256 color thing
 color='\[\e[38;5;m\]'
 
+# At least works on redhat linux something idk
+sadface=$'\360\237\230\251'
+
 # Displays all 256 colors in console
 function clr() {
     for i in {1..256}
