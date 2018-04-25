@@ -12,7 +12,11 @@ alias ref=". ~/.bashrc"
 alias d="cd"
 alias lsd="ls -d */"
 alias sra="source activate tguoenv"
+
 alias neo="neopulse"
+alias nl="neo list"
+alias nv="neo visualize"
+alias nt="neo train -p"
 #This is ME
 
 . ~/dotfiles/colors
