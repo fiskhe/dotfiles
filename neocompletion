@@ -12,7 +12,7 @@ function _neocomplete() {
     then # Complete with commands
         list="start status train visualize stop \
             delete top logs list query results \
-            export trim import kill"
+            export trim import kill version"
         COMPREPLY=( $( compgen -W "${list}" ${cur} ) )
         return 0
         
