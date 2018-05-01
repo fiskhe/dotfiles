@@ -25,6 +25,7 @@ alias into="ssh -i tina-test.pem"
 . ~/dotfiles/colors
 # Aliases! (wip)
 . ~/dotfiles/aliases
+. ~/dotfiles/neocompletion
 
 # Git aliases.
 #------------------------------------------------------------------------------
