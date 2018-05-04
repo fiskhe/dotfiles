@@ -25,11 +25,11 @@ function _neocomplete() {
         dir=${cur:0:$ind}
         local file_ext
         local files
-        if [ $arg = "train" ]; then # nml files
+        if [ $arg = "train" ]; then # complete with nml files
             file_ext=".nml"
-        elif [ $arg = "query" ]; then # csv files
+        elif [ $arg = "query" ]; then # complete with csv files
             file_ext=".csv"
-        elif [ $arg = "import" ]; then # zip or pim files
+        elif [ $arg = "import" ]; then # complete with zip or pim files
             file_ext=".pim"
             # Would have used .{zip,pim} but order of expansions 
             # makes things difficult
@@ -60,5 +60,3 @@ function _neocomplete() {
 
 complete -o filenames -F _neocomplete neo
 complete -o filenames -F _neocomplete neopulse
-
-echo done
