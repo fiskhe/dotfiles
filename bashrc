@@ -1,3 +1,10 @@
+
+
+
+# Add anaconda to path
+[[ -d "/opt/conda/bin" ]] && export PATH="/opt/conda/bin:$PATH"
+[[ -d "/opt/anaconda/bin" ]] && export PATH="/opt/anaconda/bin:$PATH"
+
 # if [ $PATH
 # export PATH=$PATH:~/bin
 # chmod +x ~/bin/lol
