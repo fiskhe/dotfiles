@@ -1,3 +1,10 @@
+
+
+
+# Add anaconda to path
+[[ -d "/opt/conda/bin" ]] && export PATH="/opt/conda/bin:$PATH"
+[[ -d "/opt/anaconda/bin" ]] && export PATH="/opt/anaconda/bin:$PATH"
+
 # if [ $PATH
 # export PATH=$PATH:~/bin
 # chmod +x ~/bin/lol
@@ -12,11 +19,20 @@ alias ref=". ~/.bashrc"
 alias d="cd"
 alias lsd="ls -d */"
 alias sra="source activate tguoenv"
+
 alias neo="neopulse"
+alias nl="neo list"
+alias nv="neo visualize"
+alias nt="neo train -p"
+=======
+alias into="ssh -i tina-test.pem"
 #This is ME
 
+# Controls colors * $PS1 (prompt for shell)
 . ~/dotfiles/colors
+# Aliases! (wip)
 . ~/dotfiles/aliases
+. ~/dotfiles/neocompletion
 
 # Git aliases.
 #------------------------------------------------------------------------------
@@ -50,6 +66,7 @@ alias gl="git log --pretty=fuller"
 alias gcp="git cherry-pick"
 alias gap="git apply"
 alias gs.="git status ."
+
 ggo() {
   git grep $@ -- "*.go"
 }

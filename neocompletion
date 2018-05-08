@@ -1,0 +1,62 @@
+#!/bin/bash
+
+function _neocomplete() {
+    local cwords=( "${COMP_WORDS[@]}" )
+    local cind=$COMP_CWORD
+    local cur="${cwords[$cind]}"
+    local prev="${cwords[$cind- 1]}"
+    local arg="${cwords[1]}"
+    local list
+    
+    if [ $cind -eq 1 ]
+    then # Complete with commands
+        list="start status train visualize stop \
+            delete top logs list query results \
+            export trim import kill version"
+        COMPREPLY=( $( compgen -W "${list}" ${cur} ) )
+        return 0
+        
+    elif [ $cind -gt 2 ] && [ $prev = "-f" ] || [ $prev = "--file" ]
+    then # Complete with directories and certain files only
+        COMPREPLY=( $( compgen -d ${cur} ) )
+        # Find index of last occurrence of /
+        ind=$( expr match "$cur" '.*[/]' )
+        # Get substring up to and including the last /
+        dir=${cur:0:$ind}
+        local file_ext
+        local files
+        if [ $arg = "train" ]; then # complete with nml files
+            file_ext=".nml"
+        elif [ $arg = "query" ]; then # complete with csv files
+            file_ext=".csv"
+        elif [ $arg = "import" ]; then # complete with zip or pim files
+            file_ext=".pim"
+            # Would have used .{zip,pim} but order of expansions 
+            # makes things difficult
+            files=$( ls ${dir}*.zip 2>/dev/null )
+        fi
+        # Get all file_ext files in that dir (don't output errors)
+        files="${files}"" "$( ls ${dir}*${file_ext} 2>/dev/null )
+        COMPREPLY+=( $( compgen -W "${files}" ${cur} ) )
+        return 0
+        
+    elif [ $cind -gt 2 ] && [ $arg = "results" ] && [ $prev = "-q" ] || [ $prev = "--query" ]
+    then # Complete with query IDs
+        list=$( ls --color='never' /DM-Dash/query_results )
+        # Remove file extension from query files (these are query IDs)
+        list=$( echo "${list[@]}" | sed -e 's/.csv//' )
+        # echo "${list[@]}"
+        COMPREPLY=( $( compgen -W "${list}" ${cur} ) )
+        return 0
+        
+    elif [ $arg = "top" ] || [ $arg = "visualize" ] || [ $arg = "list" ] || [ $arg = "stop" ] \
+        || [ $arg = "query" ] || [ $arg = "export" ] || [ $arg = "trim" ] || [ $arg = "delete" ]
+    then # Complete with projects
+        list=$(ls --color='never' /DM-Dash/projects)
+        COMPREPLY=( $( compgen -W "${list}" ${cur} ) )
+        return 0
+    fi
+}
+
+complete -o filenames -F _neocomplete neo
+complete -o filenames -F _neocomplete neopulse
