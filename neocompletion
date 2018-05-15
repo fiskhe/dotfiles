@@ -56,6 +56,8 @@ function _neocomplete() {
         COMPREPLY=( $( compgen -W "${list}" ${cur} ) )
         return 0
     fi
+    
+    return 1
 }
 
 complete -o filenames -F _neocomplete neo
