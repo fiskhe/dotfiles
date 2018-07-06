@@ -1,0 +1,40 @@
+#!/bin/sh
+
+echo "hi"
+
+
+m_add () {
+    name=$1
+    if [ -z $2 ]; then
+        echo "that's empty bruh"
+        path=$PWD
+    else
+        echo "that's not empty bruh"
+        path=$PWD"/"$2 # Making the path absolute
+        #TODO: make this work if someone puts in an abs path
+        # If path is a legit directory
+        if [ -d $path ]; then
+            echo $name" ## "$path
+        else
+            echo $path" does not exist."
+        fi
+        # grep $path te
+    fi
+
+    echo $path
+    # echo $name" ## "$path >> te
+}
+
+
+case $1 in
+    "add")
+        echo "gonna add something soon probably" >> .myc
+        m_add $2 $3
+        ;;
+    "rem")
+        echo "remove?"
+        ;;
+    *)
+        echo "alright"
+        ;;
+esac
