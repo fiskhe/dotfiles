@@ -25,6 +25,12 @@ m_add () {
     # echo $name" ## "$path >> te
 }
 
+_goto() {
+    path=$1
+    # cat te
+    grep $path te
+}
+
 
 case $1 in
     "add")
@@ -36,5 +42,6 @@ case $1 in
         ;;
     *)
         echo "alright"
+        _goto j
         ;;
 esac
