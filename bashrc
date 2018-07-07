@@ -24,7 +24,6 @@ alias neo="neopulse"
 alias nl="neo list"
 alias nv="neo visualize"
 alias nt="neo train -p"
-=======
 alias into="ssh -i tina-test.pem"
 #This is ME
 
