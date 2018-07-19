@@ -1,24 +1,35 @@
 #!/bin/sh
 
-echo "hi"
+echo "running"
 
 
 m_add () {
     name=$1
-    if [ -z $2 ]; then
+    maybe_path=$2
+    name_in_file=`grep $name te`
+
+    if [ -n "$name_in_file" ]; then # If length of string is nonzero
+        echo "There is already a bookmark by name of "$name
+        return
+        # TODO: provide the path it is attached to as well
+    fi
+    
+    if [ -z "$maybe_path" ]; then # If empty string
         echo "that's empty bruh"
         path=$PWD
     else
         echo "that's not empty bruh"
-        path=$PWD"/"$2 # Making the path absolute
-        #TODO: make this work if someone puts in an abs path
+        temp_path=$PWD"/"$maybe_path # Making the path absolute
         # If path is a legit directory
-        if [ -d $path ]; then
-            echo $name" ## "$path
+        if [ -d "$temp_path" ]; then
+            path=$temp_path
+        elif [ -d "$maybe_path" ]; then
+            path=$maybe_path
         else
-            echo $path" does not exist."
+            echo "$maybe_path"" does not exist."
         fi
-        # grep $path te
+        echo $name" ## "$path
+        grep $path te
     fi
 
     echo $path
@@ -26,13 +37,28 @@ m_add () {
 }
 
 _goto() {
-    path=$1
-    # cat te
-    grep $path te
+    bookmark=$1
+    # EXAMPLE: couple_str = "bookmark_name ## /path/to/book/mark"
+    couple_str=`grep $bookmark te`
+    
+    # splits #couple_str by ' ## ' into array
+    local IFS=" ## "
+    read -ra couple <<< $couple_str
+    # echo "${couple[@]}"
+    path="${couple[1]}"
+    # echo $path
+    if [ -d $path ]; then # If path is a legit directory
+        cd $path
+    else
+        echo $path" does not exist."
+    fi
 }
 
 
 case $1 in
+    "-h")
+        echo "myc [bookmark_name] [path (or empty for cwd)]"
+        ;;
     "add")
         echo "gonna add something soon probably" >> .myc
         m_add $2 $3
@@ -40,8 +66,12 @@ case $1 in
     "rem")
         echo "remove?"
         ;;
+    "")
+        echo "got string?"
+        ;;
     *)
-        echo "alright"
+        echo "everything else"
         _goto j
         ;;
 esac
+
