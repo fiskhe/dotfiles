@@ -1,77 +1,132 @@
 #!/bin/sh
 
-echo "running"
+te=~/dotfiles/temp/te
 
+get_couple() {
+    couple_str=$(grep $bookmark" ## " $te)
+    # splits #couple_str by ' ## ' into array
+    local IFS=" ## "
+    read -ra couple <<< $couple_str
+}
+
+ask_replace() {
+    while :
+    do
+        read -p "Would you like to replace this bookmark? (y/n)" answer
+        case $answer in
+            "y")
+                echo "Overriding old [UNDESERVING] bookmark..."
+                return 0
+                ;;
+            "n")
+                echo "Not overriding old [DESERVING] bookmark..."
+                return 1
+                ;;
+        esac
+    done
+}
 
 m_add () {
     name=$1
     maybe_path=$2
-    name_in_file=`grep $name te`
+    name_in_file=$(grep $name" ## " $te)
 
     if [ -n "$name_in_file" ]; then # If length of string is nonzero
-        echo "There is already a bookmark by name of "$name
-        return
-        # TODO: provide the path it is attached to as well
+        echo "This bookmark name already exists"
+        echo "$name_in_file"
+        ask_replace
+        # $? is exit code for previous function (aka what they return)
+        [[ $? = 1 ]] && return 1 # 1 means no, 0 means yes
+        m_remove $name
     fi
-    
+  
     if [ -z "$maybe_path" ]; then # If empty string
-        echo "that's empty bruh"
         path=$PWD
     else
-        echo "that's not empty bruh"
         temp_path=$PWD"/"$maybe_path # Making the path absolute
         # If path is a legit directory
         if [ -d "$temp_path" ]; then
             path=$temp_path
-        elif [ -d "$maybe_path" ]; then
+        elif [ -d "$maybe_path" ]; then # it's already an absolute file path
             path=$maybe_path
         else
             echo "$maybe_path"" does not exist."
+            return 1
         fi
-        echo $name" ## "$path
-        grep $path te
+    fi
+    
+    path_in_file=$(grep " ## ""$path"$  $te) # $ indicates EOL
+    if [ -n "$path_in_file" ]; then # If length of string is nonzero
+        echo "This path has already been bookmarked"
+        echo $path_in_file
+        ask_replace
+        [[ $? = 1 ]] && return 1 # 1 means no, 0 means yes
+        m_remove $path
     fi
 
-    echo $path
-    # echo $name" ## "$path >> te
+    echo $path" is now bookmarked to "$name
+    echo $name" ## "$path >> $te
+    return 0
 }
 
-_goto() {
+m_remove() {
+    rem_this=$1
+    echo "You are removing this bookmark: $rem_this..."
+    if [[ -n $(grep ^"$rem_this"" ## " $te) ]]; then # it is a bookmark name
+        # sed "/^$rem_this ## /d" $te > $te
+        sed "/^$rem_this ## /d" $te
+    elif [[ -n $(grep " ## ""$rem_this"$ $te) ]]; then # it is a file path
+        echo "You are removing this bookmark: $rem_this"
+        sed "/ ## $rem_this$/d" $te > $te
+    else
+        echo "$rem_this was not found in $te"
+    fi
+}
+
+go_to() {
     bookmark=$1
     # EXAMPLE: couple_str = "bookmark_name ## /path/to/book/mark"
-    couple_str=`grep $bookmark te`
-    
+    couple_str=$(grep $bookmark" ## " $te)
+ 
     # splits #couple_str by ' ## ' into array
     local IFS=" ## "
     read -ra couple <<< $couple_str
-    # echo "${couple[@]}"
-    path="${couple[1]}"
-    # echo $path
-    if [ -d $path ]; then # If path is a legit directory
-        cd $path
+    go_path="${couple[1]}"
+    if [ -d $go_path ]; then # If path is a legit directory
+        cd "$go_path"
     else
-        echo $path" does not exist."
+        echo $go_path" does not exist."
     fi
 }
 
+list_all() {
+    cat $te
+    return
+}
 
-case $1 in
-    "-h")
-        echo "myc [bookmark_name] [path (or empty for cwd)]"
-        ;;
-    "add")
-        echo "gonna add something soon probably" >> .myc
-        m_add $2 $3
-        ;;
-    "rem")
-        echo "remove?"
-        ;;
-    "")
-        echo "got string?"
-        ;;
-    *)
-        echo "everything else"
-        _goto j
-        ;;
-esac
+myc() {
+    case $1 in
+        "-h")
+            echo 'myc [bookmark_name] [path (or empty for cwd)]'
+            ;;
+        "add")
+            echo "gonna add something soon probably" >> .myc
+            m_add $2 $3
+            ;;
+        "rm")
+            m_remove $2
+            ;;
+        "l")
+            echo "Bookmarks:"
+            list_all
+            ;;
+        "")
+            echo "got string?"
+            ;;
+        *)
+            go_to $1
+            ;;
+    esac
+}
+
 

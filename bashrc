@@ -5,10 +5,18 @@
 [[ -d "/opt/conda/bin" ]] && export PATH="/opt/conda/bin:$PATH"
 [[ -d "/opt/anaconda/bin" ]] && export PATH="/opt/anaconda/bin:$PATH"
 
-# if [ $PATH
-# export PATH=$PATH:~/bin
 # chmod +x ~/bin/lol
 #This is ME
+# if [[ $PATH ]]; then
+#     PATH=$PATH:~/dotfiles/temp
+#     [[ ! -x ~/dotfiles/temp/myc ]] && chmod +x ~/dotfiles/temp/myc
+# else
+#     echo '$PATH is not here!'
+# fi
+
+. ~/dotfiles/temp/myc
+
+alias m="myc"
 alias gac="git add .; git commit -m"
 alias dsk="cd /cygdrive/c/users/fiskh/desktop"
 alias py="python3"
@@ -24,7 +32,6 @@ alias neo="neopulse"
 alias nl="neo list"
 alias nv="neo visualize"
 alias nt="neo train -p"
-=======
 alias into="ssh -i tina-test.pem"
 #This is ME
 

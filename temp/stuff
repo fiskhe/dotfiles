@@ -1,0 +1,23 @@
+#!/bin/bash
+
+random() {
+    local wef='wefwefsdfsdfsdf'
+    echo $wef
+}
+
+other() {
+    local thing='wefwefe'
+}
+
+
+echo 'running'
+
+other
+random
+
+# cd ~/Code/csv_checker
+# read -p 'yes or no (y/n) ' ans
+# ans=$(random)
+$ans <<< random
+echo $ans
+
