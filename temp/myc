@@ -130,3 +130,12 @@ myc() {
 }
 
 
+#TODO:
+# - -l to list directories right after cd-ing there
+# - -f to find the path that a bookmark refers to
+# - -v to open vim on the path that a bookmark refers to
+# - -cv to change directory to the path and also open vim
+# - tab completion!
+# getopts!
+# rename to QUIRK!
+
