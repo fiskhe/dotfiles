@@ -1,10 +1,11 @@
 #!/bin/bash
+te=~/dotfiles/temp/other
 
 random() {
-    local wef='wefwefsdfsdfsdf'
-    echo $wef
-
-    echo $@
+    #klocal wef='wefwefsdfsdfsdf'
+    # echo $wef
+    sed -i "/^cur ## /d" $te
+    # echo $@
 }
 
 other() {

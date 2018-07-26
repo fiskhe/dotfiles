@@ -1,4 +1,5 @@
-temp ## /home/tguo/dotfiles/temp
 dot ## /home/tguo/dotfiles
 cur ## /home/tguo/Code/csv_checker
-dev ## /home/tguo/Code/neopulse_dsl/csv_checker
+dev ## /home/tguo/Code/neopulse_dsl/csv_check
+t ## /home/tguo/dotfiles/temp
+te ## /home/tguo/dotfiles/temp
