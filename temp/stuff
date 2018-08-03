@@ -3,8 +3,8 @@ te=~/dotfiles/temp/other
 
 random() {
     #klocal wef='wefwefsdfsdfsdf'
-    # echo $wef
-    sed -i "/^cur ## /d" $te
+    echo hello
+    # sed -i "/^cur ## /d" $te
     # echo $@
 }
 
@@ -12,15 +12,21 @@ other() {
     local thing='wefwefe'
 }
 
+returnone() {
+    return 1 
+}
 
-echo 'running'
 
-other
-random arg asd sdf gd
+# echo 'running'
+
+# other
+# random arg asd sdf gd
 
 # cd ~/Code/csv_checker
 # read -p 'yes or no (y/n) ' ans
 # ans=$(random)
-$ans <<< random
-echo $ans
+# ans=''
+# $ans <<< random
+# echo $ans
+
 

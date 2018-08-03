@@ -2,6 +2,8 @@
 [[ -d "/opt/conda/bin" ]] && export PATH="/opt/conda/bin:$PATH"
 [[ -d "/opt/anaconda/bin" ]] && export PATH="/opt/anaconda/bin:$PATH"
 
+PATH=$PATH:/home/tguo/Code/addthistopath
+
 . ~/dotfiles/temp/myc
 # Controls colors * $PS1 (prompt for shell)
 . ~/dotfiles/colors

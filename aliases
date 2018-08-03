@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# temp
+alias inst="q neo; py setup.py install; cd -"
+
 # Shortcuts
 #------------------------------------------------------------------------------
 alias py="python3"
