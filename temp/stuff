@@ -16,6 +16,11 @@ returnone() {
     return 1 
 }
 
+sedit() {
+    sed 's/ ## .*\
+    //' tem
+}
+
 
 # echo 'running'
 
