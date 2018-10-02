@@ -23,6 +23,7 @@ alias nv="neo visualize"
 alias nt="neo train -p"
 alias into="ssh -i tina-test.pem"
 #This is ME
+PATH=$PATH:/home/tguo/Code/addthistopath
 
 . ~/dotfiles/temp/myc
 # Controls colors * $PS1 (prompt for shell)
@@ -33,7 +34,15 @@ alias into="ssh -i tina-test.pem"
 . ~/dotfiles/neocompletion
 
 
-# Git things that Alex coded
+# Git things 
+#------------------------------------------------------------------------------
+gacs() {
+    # git add commit solo
+    git add $1
+    git commit -m $2
+}
+
+# Alex coded
 #------------------------------------------------------------------------------
 ggo() {
   git grep $@ -- "*.go"
@@ -73,4 +82,3 @@ mcount() {
   wc -l
 }
 #------------------------------------------------------------------------------
-

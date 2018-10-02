@@ -9,17 +9,27 @@ get_couple() {
     read -ra couple <<< $couple_str
 }
 
-ask_replace() {
+ask_conf() {
+    action=$1
+    if [ $action = "remove" ]; then
+        present_participle="Removing"
+    elif [ $action = "override" ]; then
+        present_participle="Overriding"
+    else
+        echo "huh?"
+        exit 1
+    fi
+
     while :
     do
-        read -p "Would you like to replace this bookmark? (Y/n) :  " answer
+        read -p "Would you like to "$action" this bookmark? (Y/n) :  " answer
         case $answer in
             "Y")
-                echo "Overriding old [UNDESERVING] bookmark..."
+                echo $present_participle" old [UNDESERVING] bookmark..."
                 return 0
                 ;;
             "n")
-                echo "Not overriding old [DESERVING] bookmark..."
+                echo "Aborting action..."
                 return 1
                 ;;
         esac
@@ -27,28 +37,26 @@ ask_replace() {
 }
 
 m_add () {
+    # Notes: $? gives exit code for last function run
     name=$1
     maybe_path=$2
     name_in_file=$(grep $name" ## " $te)
 
     # Checks if the bookmark name is in bookmark file. If so, ask to override
-    if [[ -n "$name_in_file" ]]; then # If length of string is nonzero
+    if [ -n "$name_in_file" ]; then # If length of string is nonzero
         echo "This bookmark name already exists"
         echo "$name_in_file"
-        ask_replace
-        # $? is exit code for previous function (aka what they return)
-        [[ $? = 1 ]] && return 1 # 1 means no, 0 means yes
-        m_remove $name
+        ask_conf "override" && m_remove $name "-y" || return 1
     fi
   
-    if [[ -z "$maybe_path" ]]; then # If empty string
+    if [ -z "$maybe_path" ]; then # If empty string
         path=$PWD
     else
         temp_path=$PWD"/"$maybe_path # Making the path absolute
         # If path is a legit directory
-        if [[ -d "$temp_path" ]]; then
+        if [ -d "$temp_path" ]; then
             path=$temp_path
-        elif [[ -d "$maybe_path" ]]; then # it's already an absolute file path
+        elif [ -d "$maybe_path" ]; then # it's already an absolute file path
             path=$maybe_path
         else
             echo "$maybe_path"" does not exist or is not a directory."
@@ -56,17 +64,6 @@ m_add () {
         fi
     fi
     
-    # Checks if the path is in bookmark file. If so, ask to override
-    # path_in_file=$(grep " ## ""$path"$  $te) # $ indicates EOL
-    # if [[ -n "$path_in_file" ]]; then # If length of string is nonzero
-    #     echo "This path has already been bookmarked"
-    #     echo $path_in_file
-    #     ask_replace
-    #     # $? is the exit code of the last function called
-    #     [[ $? = 1 ]] && return 1 # 1 means no, 0 means yes
-    #     m_remove $path
-    # fi
-
     echo $path" is now bookmarked to "$name
     echo $name" ## "$path >> $te
     return 0
@@ -76,14 +73,20 @@ m_remove() {
     # Notes: ^ indicates beginning of line
     #        $ indicates end of line
     rem_this=$1
-    echo "You are removing this bookmark: $rem_this..."
-    if [[ -n $(grep ^"$rem_this"" ## " $te) ]]; then # it is a bookmark name
-        sed -i "/^$rem_this ## /d" $te
-    elif [[ -n $(grep " ## ""$rem_this"$ $te) ]]; then # it is a file path
-        echo "You are removing this bookmark: $rem_this"
-        sed -i "/ ## $rem_this$/d" $te
+    
+    if [ -n "$(grep ^"$rem_this"" ## " $te)" ]; then # it is a bookmark name
+        to_remove="/^$rem_this ## /d"
+    elif [ -n "$(grep " ## ""$rem_this"$ $te)" ]; then # it is a file path
+        to_remove="/ ## $rem_this$/d"
     else
         echo "$rem_this was not found in $te"
+        return 1
+    fi
+
+    [ $2 = "-y" ] || ask_conf "remove"
+    if [ $? = 0 -a $2 = "-y" ]; then
+        # Actual action of removing
+        sed -i "$to_remove" $te
     fi
 }
 
@@ -96,15 +99,17 @@ go_to() {
     local IFS=" ## "
     read -ra couple <<< $couple_str
     go_path="${couple[1]}"
-    if [[ -d $go_path ]]; then # If path is a legit directory
+    if [ -d $go_path ]; then # If path is a legit directory
         cd "$go_path"
+    elif [ -z $go_path ]; then # Pjth is no path! What a way to go
+        echo "The bookmark, $bookmark, does not exist."
     else
-        echo $go_path" does not exist."
+        echo "$go_path does not exist."
     fi
 }
 
 list_all() {
-    if [[ "$1" = "-s" ]]; then
+    if [ "$1" = "-s" ]; then
         cat $te | sort
     else
         cat $te
