@@ -1,6 +1,3 @@
-
-
-
 # Add anaconda to path
 [[ -d "/opt/conda/bin" ]] && export PATH="/opt/conda/bin:$PATH"
 [[ -d "/opt/anaconda/bin" ]] && export PATH="/opt/anaconda/bin:$PATH"
@@ -27,45 +24,17 @@ alias nt="neo train -p"
 alias into="ssh -i tina-test.pem"
 #This is ME
 
+. ~/dotfiles/temp/myc
 # Controls colors * $PS1 (prompt for shell)
 . ~/dotfiles/colors
 # Aliases! (wip)
 . ~/dotfiles/aliases
+# Neopulse completion
 . ~/dotfiles/neocompletion
 
-# Git aliases.
-#------------------------------------------------------------------------------
-# Git aliases.
-#------------------------------------------------------------------------------
-alias gclone="git clone"
-alias gls="git ls-files"
-alias gsh="git show"
-alias gr="git pull --rebase"
-alias gpatch="git format-patch -n HEAD^"
-alias uncommit="git reset --soft HEAD^"
-alias dumbcommit="git add -u ./*; git commit -m tmp"
-alias lastcommit="git rev-parse HEAD"
-alias lc="git rev-parse HEAD"
-alias gdiff="git diff --staged"
-alias unmerged="git diff --name-only --diff-filter=U"
-alias unadd="git diff --name-only"
-alias tocom="git diff --staged --name-only"
-alias gs="git status"
-alias gd="git diff"
-alias gp="git push"
-alias gon="git rebase --continue"
-alias gau="git add -u"
-alias ga="git add"
-alias xga="xargs git add"
-alias xag="xargs git add"
-alias gc="LC_ALL=''; git commit"
-alias gh="git checkout"
-alias gb="git branch"
-alias gl="git log --pretty=fuller"
-alias gcp="git cherry-pick"
-alias gap="git apply"
-alias gs.="git status ."
 
+# Git things that Alex coded
+#------------------------------------------------------------------------------
 ggo() {
   git grep $@ -- "*.go"
 }
@@ -103,21 +72,5 @@ mcount() {
   /bin/grep $month |
   wc -l
 }
+#------------------------------------------------------------------------------
 
-# git grep aliases, as historical reference.
-alias gren="LC_ALL=C; git grep --color -n"
-alias gw="gren -w"
-alias fren="gren -F30"
-alias fw="fren -w"
-
-# ls aliases.
-alias ls="ls --color"
-
-# Vim aliases.
-alias v="vim"
-
-# Cygwin 
-alias open="cygstart.exe"
-
-# Common location aliases.
-alias dsk="cd /mnt/c/Users/fiskh/Desktop"

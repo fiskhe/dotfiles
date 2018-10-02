@@ -69,11 +69,18 @@ Plugin 'vim-scripts/camelcasemotion'
 " Line indentation indicator (MWAH YES)
 Plugin 'nathanaelkane/vim-indent-guides'
 
+" Better Python syntax highlighting
+Plugin 'hdima/python-syntax'
+
+" Python folding simply or sth!
+" Plugin 'tmhedberg/SimpylFold'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-colors molokai		"Seriously though
+" colorscheme molokai "Seriously though
+colorscheme gruvbox
 
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
@@ -156,6 +163,9 @@ nnoremap B ^
 
 
 "THESE ARE THE EDITS I HAVE MADE (TOO)
+" Shortcut to show console
+nnoremap <Leader>c :!<CR>
+
 "LaTeX shortcuts
 " Compile to pdf with latexmk
 nnoremap <Leader>ll :Latexmk<CR>
@@ -167,6 +177,9 @@ inoremap beve \beginverse<CR><Backspace>\endverse<ESC>k
 inoremap hyen \indextitleentry[hymnidx]{}<ESC>i
 " Put in modern index
 inoremap moen \indextitleentry[modidx]{}<ESC>i
+
+nnoremap <Leader>t gt
+nnoremap <Leader>T gT
 
 " Run python 3
 autocmd FileType python nnoremap <Leader>r :exec '!python3' shellescape(@%, 1)<cr>
