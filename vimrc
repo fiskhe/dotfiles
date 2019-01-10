@@ -12,6 +12,7 @@ set noerrorbells
 set ignorecase
 set hlsearch
 
+
 set list
 " Shows dots for spaces and triangles for tabs
 set listchars=tab:▸\ ,trail:·,precedes:←,extends:→
@@ -60,6 +61,9 @@ Plugin 'LaTeX-Box-Team/LaTeX-Box' " All of your Plugins must be added before the
 " All the colorschemes pls
 Plugin 'flazz/vim-colorschemes'
 
+" gruvbox
+Plugin 'morhetz/gruvbox'
+
 " Vim airline
 Plugin 'vim-airline/vim-airline'
 
@@ -72,6 +76,8 @@ Plugin 'nathanaelkane/vim-indent-guides'
 " Better Python syntax highlighting
 Plugin 'hdima/python-syntax'
 
+Plugin 'pangloss/vim-javascript'
+
 " Python folding simply or sth!
 " Plugin 'tmhedberg/SimpylFold'
 
@@ -81,6 +87,7 @@ filetype plugin indent on    " required
 
 " colorscheme molokai "Seriously though
 colorscheme gruvbox
+set bg=dark
 
 let g:indent_guides_guide_size=1
 let g:indent_guides_auto_colors=0
