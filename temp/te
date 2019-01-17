@@ -1,9 +1,4 @@
-t ## /home/tguo/dotfiles/temp
-te ## /home/tguo/dotfiles/temp
-test ## /home/tguo/Code/neopulse_dsl/neopulse/utilities/tests
-neo ## /home/tguo/Code/neopulse_dsl
 code ## /home/tguo/Code
-conv ## /home/tguo/Code/neopulse_dsl/neopulse/utilities
 chome ## /mnt/c/Users/fiskh
 dev ## /mnt/c/Users/fiskh/Desktop/blah
 cur ## /mnt/c/Users/fiskh/Desktop/blah/colorful-music
@@ -11,3 +6,4 @@ docs ## /mnt/c/Users/fiskh/Documents
 fb ## /mnt/c/Users/fiskh/Desktop/fbremoveme/chrome_extension2
 dot ## /root/dotfiles
 colors ## /root/.vim/bundle/vim-colorschemes/colors
+clion ## /mnt/c/Users/fiskh/CLionProjects

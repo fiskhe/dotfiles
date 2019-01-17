@@ -9,6 +9,7 @@ get_couple() {
     read -ra couple <<< $couple_str
 }
 
+# ask for confirmation
 ask_conf() {
     action=$1
     if [ $action = "remove" ]; then
@@ -83,8 +84,8 @@ m_remove() {
         return 1
     fi
 
-    [ $2 = "-y" ] || ask_conf "remove"
-    if [ $? = 0 -a $2 = "-y" ]; then
+    [ "$2" = "-y" ] || ask_conf "remove"
+    if [ "$?" = 0 -o "$2" = "-y" ]; then
         # Actual action of removing
         sed -i "$to_remove" $te
     fi
@@ -92,13 +93,21 @@ m_remove() {
 
 go_to() {
     bookmark=$1
+
     # EXAMPLE: couple_str = "bookmark_name ## /path/to/book/mark"
     couple_str=$(grep ^"$bookmark"" ## " $te)
  
     # splits #couple_str by ' ## ' into array
-    local IFS=" ## "
-    read -ra couple <<< $couple_str
-    go_path="${couple[1]}"
+    local IFS=' ## '
+
+    # The below is an alternate way to get the same result
+    # read -ra couple <<< $couple_str
+    couple=( $couple_str )
+
+    # Someday, figure out why it's [2] instead of [1]
+    # and why [1] gives me an empty value or something like that
+    go_path="${couple[2]}"
+
     if [ -d $go_path ]; then # If path is a legit directory
         cd "$go_path"
     elif [ -z $go_path ]; then # Pjth is no path! What a way to go
@@ -132,7 +141,7 @@ myc() {
             list_all $2
             ;;
         "")
-            echo "got string?"
+            echo "Got String?"
             ;;
         *)
             go_to $1
@@ -142,6 +151,7 @@ myc() {
 
 
 #TODO:
+# - clean up the -y in m_remove
 # - change q l to q ls (better to avoid confusion)
 # - -l to list directories right after cd-ing there
 # - -f to find the path that a bookmark refers to
