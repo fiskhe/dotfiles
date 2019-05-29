@@ -1,6 +1,6 @@
 #!/bin/sh
 
-te=~/dotfiles/temp/te
+te=~/q_bookmarks
 
 get_couple() {
     couple_str=$(grep $bookmark" ## " $te)
@@ -126,6 +126,12 @@ list_all() {
 }
 
 myc() {
+    if [ ! -f $te ]; then
+        echo 'q_bookmarks file has not been created yet'
+        echo 'making file now...'
+        touch $te
+    fi
+
     case $1 in
         "-h")
             echo 'myc [bookmark_name] [path (or empty for cwd)]'
