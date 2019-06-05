@@ -58,6 +58,8 @@ alias gcp="git cherry-pick"
 alias gap="git apply"
 alias gs.="git status ."
 
+alias gcm="git commit -m"
+
 # git grep aliases, as historical reference.
 alias gren="LC_ALL=C; git grep --color -n"
 alias gw="gren -w"
@@ -72,6 +74,7 @@ alias v="vim"
 # Cygwin 
 alias open="cygstart.exe"
 
-# Common location aliases.
-alias dsk="cd /mnt/c/Users/fiskh/Desktop"
-alias dsk="cd /cygdrive/c/users/fiskh/desktop"
+# Setup
+alias vundleinstall="git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+
+
