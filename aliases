@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# temp
-alias inst="q neo; py setup.py install; cd -"
+alias ref=". ~/.bashrc"
 
 # Shortcuts
 #------------------------------------------------------------------------------
@@ -16,15 +15,6 @@ alias sra="source activate tguoenv"
 alias q="myc"
 # alias m="myc"
 
-# NeoPulse
-#------------------------------------------------------------------------------
-alias neo="neopulse"
-alias nl="neo list"
-alias nv="neo visualize"
-alias nt="neo train -p"
-alias into="ssh -i tina-test.pem"
-
-alias ref=". ~/.bashrc"
 
 # Git aliases.
 #------------------------------------------------------------------------------
@@ -65,6 +55,14 @@ alias gren="LC_ALL=C; git grep --color -n"
 alias gw="gren -w"
 alias fren="gren -F30"
 alias fw="fren -w"
+
+# tmux aliases
+#------------------------------------------------------------------------------
+alias tl="tmux ls"
+alias tkill="tmux kill-server" # to close all tmux open sessions and server cleanly and gracefully
+alias tkilla="tmux kill-session -a" # within a tmux session, to close all other sessions
+alias tk="tmux kill-session -t targetSession" # followed by a session name in order to kill that one
+
 
 # ls aliases.
 alias ls="ls --color" 
