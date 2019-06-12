@@ -7,6 +7,8 @@ Periwinkle='\[\e[38;5;74m\]' # 75 is a slightly darker shade
 Salmon='\[\e[38;5;203m\]'
 VeryLightSalmon='\[\e[38;5;216m\]'
 ExceedinglyLightSalmon='\[\e[38;5;223m\]'
+AlmostVeryNoSalmon='\[\e[38;5;230m\]'
+
 VeryLightBlue='\[\e[38;5;159m\]'
 ExceedinglyLightBlue='\[\e[38;5;158m\]'
 
@@ -52,8 +54,10 @@ if [ "$color_prompt" = yes ]; then
         # PS1=''$NiceGreen'${prompt_break}\n'$Periwinkle'['$NiceRed'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle'] (:\n'$NiceRed'$ '$ExceedinglyLightBlue''
         # PS1=''$NiceGreen'${prompt_break}\n'$Periwinkle'['$NiceRed'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle'] '$lenny' haha \n'$NiceRed'$ '$ExceedinglyLightBlue''
         PS1=''$NiceGreen'${prompt_break}\n'$Periwinkle'['$NiceRed'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle'] '$lenny' haha \n'$NiceRed'$ '$VeryLightSalmon''
+        
     else
-        PS1=''$NiceBlue'${prompt_break}\n'$Periwinkle'['$NiceGreen'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle']>~\n'$NiceRed'$ '$ExceedinglyLightSalmon''
+        PS1=''$NiceBlue'${prompt_break}\n'$Periwinkle'['$NiceGreen'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle']>~\n'$NiceRed'$ '$AlmostVeryNoSalmon''
+        
     fi
 fi
 

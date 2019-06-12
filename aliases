@@ -61,7 +61,7 @@ alias fw="fren -w"
 alias tl="tmux ls"
 alias tkill="tmux kill-server" # to close all tmux open sessions and server cleanly and gracefully
 alias tkilla="tmux kill-session -a" # within a tmux session, to close all other sessions
-alias tk="tmux kill-session -t targetSession" # followed by a session name in order to kill that one
+alias tk="tmux kill-session -t" # followed by a session name in order to kill that one
 
 
 # ls aliases.
