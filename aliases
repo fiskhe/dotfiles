@@ -8,6 +8,7 @@ alias py="python3"
 alias py2="python"
 alias l="ls"
 alias la="ls -al"
+alias ltr="ls -ltr"
 alias d="cd"
 alias c="cd"
 alias lsd="ls -d"
@@ -75,4 +76,10 @@ alias open="cygstart.exe"
 # Setup
 alias vundleinstall="git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
 
+# Common location aliases.
+alias dsk="cd /mnt/c/Users/fiskh/Desktop"
+alias dsk="cd /cygdrive/c/users/fiskh/desktop"
 
+# file shortcuts... consider creating this function within quirk/myc
+alias hist="vim ~/.bash_history"
+alias ali="vim ~/dotfiles/aliases"

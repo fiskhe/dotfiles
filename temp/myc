@@ -142,6 +142,7 @@ myc() {
     case $1 in
         "-h")
             echo 'myc [bookmark_name] [path (or empty for cwd)]'
+            echo 'Commands: add, rm, l'
             ;;
         "add")
             m_add $2 $3
