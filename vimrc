@@ -14,6 +14,7 @@ set hlsearch
 
 " wow I didn't know you needed this on some machines
 set backspace=indent,eol,start
+syntax on
 
 
 set list
