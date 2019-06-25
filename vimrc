@@ -12,7 +12,8 @@ set noerrorbells
 set ignorecase
 set hlsearch
 
-syntax on " wow I didnt know you needed this on some machines
+" wow I didn't know you needed this on some machines
+set backspace=indent,eol,start
 
 
 set list
