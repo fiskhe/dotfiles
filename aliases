@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# temp
-alias inst="q neo; py setup.py install; cd -"
+alias ref=". ~/.bashrc"
 
 # Shortcuts
 #------------------------------------------------------------------------------
@@ -9,6 +8,7 @@ alias py="python3"
 alias py2="python"
 alias l="ls"
 alias la="ls -al"
+alias ltr="ls -ltr"
 alias d="cd"
 alias c="cd"
 alias lsd="ls -d"
@@ -16,15 +16,6 @@ alias sra="source activate tguoenv"
 alias q="myc"
 # alias m="myc"
 
-# NeoPulse
-#------------------------------------------------------------------------------
-alias neo="neopulse"
-alias nl="neo list"
-alias nv="neo visualize"
-alias nt="neo train -p"
-alias into="ssh -i tina-test.pem"
-
-alias ref=". ~/.bashrc"
 
 # Git aliases.
 #------------------------------------------------------------------------------
@@ -58,11 +49,21 @@ alias gcp="git cherry-pick"
 alias gap="git apply"
 alias gs.="git status ."
 
+alias gcm="git commit -m"
+
 # git grep aliases, as historical reference.
 alias gren="LC_ALL=C; git grep --color -n"
 alias gw="gren -w"
 alias fren="gren -F30"
 alias fw="fren -w"
+
+# tmux aliases
+#------------------------------------------------------------------------------
+alias tl="tmux ls"
+alias tkill="tmux kill-server" # to close all tmux open sessions and server cleanly and gracefully
+alias tkilla="tmux kill-session -a" # within a tmux session, to close all other sessions
+alias tk="tmux kill-session -t" # followed by a session name in order to kill that one
+
 
 # ls aliases.
 alias ls="ls --color" 
@@ -72,6 +73,13 @@ alias v="vim"
 # Cygwin 
 alias open="cygstart.exe"
 
+# Setup
+alias vundleinstall="git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
+
 # Common location aliases.
 alias dsk="cd /mnt/c/Users/fiskh/Desktop"
 alias dsk="cd /cygdrive/c/users/fiskh/desktop"
+
+# file shortcuts... consider creating this function within quirk/myc
+alias hist="vim ~/.bash_history"
+alias ali="vim ~/dotfiles/aliases"

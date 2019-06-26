@@ -12,6 +12,10 @@ set noerrorbells
 set ignorecase
 set hlsearch
 
+" wow I didn't know you needed this on some machines
+set backspace=indent,eol,start
+syntax on
+
 
 set list
 " Shows dots for spaces and triangles for tabs
@@ -118,7 +122,6 @@ autocmd FileType Python syn keyword Special print
 " Common abbreviation
 abbr teh the
 abbr ntr NERDTree
-abbr desktop /cygdrive/c/users/fiskh/desktop 
 abbr ret return
 
 function s:Cursor_Moved()

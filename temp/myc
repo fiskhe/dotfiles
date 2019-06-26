@@ -1,6 +1,6 @@
 #!/bin/sh
 
-te=~/dotfiles/temp/te
+te=~/q_bookmarks
 
 get_couple() {
     couple_str=$(grep $bookmark" ## " $te)
@@ -110,7 +110,7 @@ go_to() {
 
     if [ -d $go_path ]; then # If path is a legit directory
         cd "$go_path"
-    elif [ -z $go_path ]; then # Pjth is no path! What a way to go
+    elif [ -z $go_path ]; then # Path is no path! What a way to go
         echo "The bookmark, $bookmark, does not exist."
     else
         echo "$go_path does not exist."
@@ -118,6 +118,13 @@ go_to() {
 }
 
 list_all() {
+    # below, -s means if $te exists and has a size greater than zero, TRUE
+    if [ ! -s $te ]; then
+        echo "There aren't any bookmarks here. Wyd?"
+        return 1
+    fi
+
+    echo "Bookmarks:"
     if [ "$1" = "-s" ]; then
         cat $te | sort
     else
@@ -126,9 +133,16 @@ list_all() {
 }
 
 myc() {
+    if [ ! -f $te ]; then
+        echo 'q_bookmarks file has not been created yet'
+        echo 'making file now...'
+        touch $te
+    fi
+
     case $1 in
         "-h")
             echo 'myc [bookmark_name] [path (or empty for cwd)]'
+            echo 'Commands: add, rm, l'
             ;;
         "add")
             m_add $2 $3
@@ -137,7 +151,6 @@ myc() {
             m_remove $2
             ;;
         "l")
-            echo "Bookmarks:"
             list_all $2
             ;;
         "")
