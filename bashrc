@@ -15,6 +15,7 @@ alias la="ls -al"
 alias ref=". ~/.bashrc"
 alias d="cd"
 alias lsd="ls -d */"
+alias version="cat /etc/*-release"
 alias sra="source activate tguoenv"
 
 alias neo="neopulse"

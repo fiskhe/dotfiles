@@ -43,6 +43,7 @@ else
     color_prompt=
 fi
 
+
 if [ "$color_prompt" = yes ]; then
     # The below is fancy
     # prompt_break="---------------~+#@#+~>~>~~+++++>>>>>$%>>>++~~-- - - · · · · · · · · · · · · · · · · · · · · · · · · · · · ·"
