@@ -1,7 +1,7 @@
 ; Autohotkey
 
 Capslock::Ctrl
-Ctrl::Capslock
+; Ctrl::Capslock
 
 ; Execute these commands for mintty.
 

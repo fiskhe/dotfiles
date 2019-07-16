@@ -26,7 +26,7 @@ alias into="ssh -i tina-test.pem"
 #This is ME
 PATH=$PATH:/home/tguo/Code/addthistopath
 
-. ~/dotfiles/temp/myc
+. ~/dotfiles/temp/quirk
 # Controls colors * $PS1 (prompt for shell)
 . ~/dotfiles/colors
 # Aliases! (wip)

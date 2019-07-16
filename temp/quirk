@@ -37,7 +37,7 @@ ask_conf() {
     done
 }
 
-m_add () {
+q_add () {
     # Notes: $? gives exit code for last function run
     name=$1
     maybe_path=$2
@@ -47,7 +47,7 @@ m_add () {
     if [ -n "$name_in_file" ]; then # If length of string is nonzero
         echo "This bookmark name already exists"
         echo "$name_in_file"
-        ask_conf "override" && m_remove $name "-y" || return 1
+        ask_conf "override" && q_remove $name "-y" || return 1
     fi
   
     if [ -z "$maybe_path" ]; then # If empty string
@@ -70,7 +70,7 @@ m_add () {
     return 0
 }
 
-m_remove() {
+q_remove() {
     # Notes: ^ indicates beginning of line
     #        $ indicates end of line
     rem_this=$1
@@ -108,10 +108,10 @@ go_to() {
     # and why [1] gives me an empty value or something like that
     go_path="${couple[2]}"
 
-    if [ -d $go_path ]; then # If path is a legit directory
-        cd "$go_path"
-    elif [ -z $go_path ]; then # Path is no path! What a way to go
+    if [ -z "$go_path" ]; then # Path is no path! What a way to go
         echo "The bookmark, $bookmark, does not exist."
+    elif [ -d $go_path ]; then # If path is a legit directory
+        cd "$go_path"
     else
         echo "$go_path does not exist."
     fi
@@ -132,7 +132,7 @@ list_all() {
     fi
 }
 
-myc() {
+quirk() {
     if [ ! -f $te ]; then
         echo 'q_bookmarks file has not been created yet'
         echo 'making file now...'
@@ -145,10 +145,10 @@ myc() {
             echo 'Commands: add, rm, l'
             ;;
         "add")
-            m_add $2 $3
+            q_add $2 $3
             ;;
         "rm")
-            m_remove $2
+            q_remove $2
             ;;
         "l")
             list_all $2
@@ -164,14 +164,13 @@ myc() {
 
 
 #TODO:
-# - clean up the -y in m_remove
+# - clean up the -y in q_remove
 # - change q l to q ls (better to avoid confusion)
 # - -l to list directories right after cd-ing there
 # - -f to find the path that a bookmark refers to
 # - -v to open vim on the path that a bookmark refers to
 # - -cv to change directory to the path and also open vim
 # - tab completion!
-# - have a thing to make the bookmark file
+# - have a thing to make the bookmark file like a makefile or something
 # getopts!
-# rename to QUIRK!
 
