@@ -3,11 +3,11 @@
 These are my ever-helpful dotfiles (rather obviously).
 
 ## How to set up ya feel
-
+```
 cd ~
 git clone https://github.com/fiskhe/dotfiles.git
 source ~/dotfiles/scripts/setup
-
+```
 TADA
 
 ## Folders
