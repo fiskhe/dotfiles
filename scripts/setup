@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# To ease my setup on new computers ugh
+
+#Set up the rcs
+if [ -f ~/.bashrc ]; then
+    echo ".bashrc exists already"
+    # echo "Appending command to source dotfiles/bashrc to end of existing
+    # .bashrc..."
+    if grep -q "dotfiles/bashrc" ~/.bashrc; then
+        echo "dotfiles/bashrc is already sourced in existing .bashrc"
+    else
+        echo "source ~/dotfiles/bashrc" >> ~/.bashrc
+        echo "done"
+    fi
+else
+    echo ".bashrc does not exist... creating soft symlink to dotfiles/bashrc"
+fi
+
+if [ -f ~/.vimrc ]; then
+    echo ".vimrc exists already"
+    # echo "Appending command to source dotfiles/vimrc to end of existing
+    # .vimrc..."
+    if grep -q "dotfiles/vimrc" ~/.vimrc; then
+        echo "dotfiles/vimrc is already sourced in existing .vimrc"
+    else
+        echo "source ~/dotfiles/vimrc" >> ~/.vimrc
+        echo "done"
+    fi
+else
+    echo ".vimrc does not exist... creating soft symlink to dotfiles/vimrc"
+fi
+
+#  TODO: 
+# -  inputrc
+# -  vim plugin
+# -  check if symlink already before appending source whatever
+
+# Set up vim vundle plugin manager
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
