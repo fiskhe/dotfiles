@@ -1,6 +1,6 @@
 # Add anaconda to path
-[[ -d "/opt/conda/bin" ]] && export PATH="/opt/conda/bin:$PATH"
-[[ -d "/opt/anaconda/bin" ]] && export PATH="/opt/anaconda/bin:$PATH"
+# [[ -d "/opt/conda/bin" ]] && export PATH="/opt/conda/bin:$PATH"
+# [[ -d "/opt/anaconda/bin" ]] && export PATH="/opt/anaconda/bin:$PATH"
 
 # if [ $PATH
 # export PATH=$PATH:~/bin
@@ -18,11 +18,6 @@ alias lsd="ls -d */"
 alias version="cat /etc/*-release"
 alias sra="source activate tguoenv"
 
-alias neo="neopulse"
-alias nl="neo list"
-alias nv="neo visualize"
-alias nt="neo train -p"
-alias into="ssh -i tina-test.pem"
 #This is ME
 PATH=$PATH:/home/tguo/Code/addthistopath
 

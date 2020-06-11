@@ -2,6 +2,11 @@
 
 alias ref=". ~/.bashrc"
 
+# For work
+#------------------------------------------------------------------------------
+alias br="brazil"
+
+
 # Shortcuts
 #------------------------------------------------------------------------------
 alias py="python3"
@@ -66,7 +71,9 @@ alias tk="tmux kill-session -t" # followed by a session name in order to kill th
 
 
 # ls aliases.
-alias ls="ls --color" 
+#alias ls="ls --color" 
+# The below I need for ... macCC
+alias ls="ls -G" 
 # Vim aliases.
 alias v="vim"
 

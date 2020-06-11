@@ -5,37 +5,48 @@
 #Set up the rcs
 if [ -f ~/.bashrc ]; then
     echo ".bashrc exists already"
-    # echo "Appending command to source dotfiles/bashrc to end of existing
-    # .bashrc..."
     if grep -q "dotfiles/bashrc" ~/.bashrc; then
-        echo "dotfiles/bashrc is already sourced in existing .bashrc"
+        echo -e "\tdotfiles/bashrc is already sourced in existing .bashrc"
+    elif [ -L ~/.bashrc ]; then
+        echo -e "\t~/.bashrc is a symlink. Let's leave that alone for now."
     else
+        echo -e "\tAppending command to source dotfiles/bashrc to end of existing .bashrc..."
         echo "source ~/dotfiles/bashrc" >> ~/.bashrc
-        echo "done"
+        echo -e "\tdone"
     fi
+    echo -e "\t moving on..."
 else
     echo ".bashrc does not exist... creating soft symlink to dotfiles/bashrc"
+    ln -s ~/dotfiles/bashrc ~/.bashrc
 fi
 
 if [ -f ~/.vimrc ]; then
     echo ".vimrc exists already"
-    # echo "Appending command to source dotfiles/vimrc to end of existing
-    # .vimrc..."
     if grep -q "dotfiles/vimrc" ~/.vimrc; then
         echo "dotfiles/vimrc is already sourced in existing .vimrc"
+    elif [ -L ~/.vimrc ]; then
+        echo -e "\t~/.vimrc is a symlink. Let's leave that alone for now."
     else
-        echo "source ~/dotfiles/vimrc" >> ~/.vimrc
-        echo "done"
+        echo -e "\tAppending command to source dotfiles/vimrc to end of existing .vimrc..."
+        echo ":so ~/dotfiles/vimrc" >> ~/.vimrc
+        echo -e "\tdone"
     fi
+    echo -e "\t moving on..."
 else
     echo ".vimrc does not exist... creating soft symlink to dotfiles/vimrc"
+    ln -s ~/dotfiles/vimrc ~/.vimrc
 fi
 
 #  TODO: 
 # -  inputrc
-# -  vim plugin
-# -  check if symlink already before appending source whatever
+# - install any packages I want.. maybe?
+# - maybe make sure vim is up to date?
 
 # Set up vim vundle plugin manager
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+if [ ! -d ~/.vim/bundle/Vundle.vim ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+    vim +PluginInstall +qall
+else
+    echo "Vundle already installed"
+fi
+

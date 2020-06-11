@@ -205,4 +205,3 @@ nnoremap <Leader>T gT
 
 " Run python 3
 autocmd FileType python nnoremap <Leader>r :exec '!python3' shellescape(@%, 1)<cr>
-
