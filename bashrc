@@ -19,15 +19,15 @@ alias version="cat /etc/*-release"
 alias sra="source activate tguoenv"
 
 #This is ME
-PATH=$PATH:/home/tguo/Code/addthistopath
+PATH=$PATH:~/dotfiles
 
-. ~/dotfiles/temp/quirk
+. ~/dotfiles/scripts/quirk
 # Controls colors * $PS1 (prompt for shell)
 . ~/dotfiles/colors
 # Aliases! (wip)
 . ~/dotfiles/aliases
 # Neopulse completion
-. ~/dotfiles/neocompletion
+# . ~/dotfiles/neocompletion
 
 
 # Git things 

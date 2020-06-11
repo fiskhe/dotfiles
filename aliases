@@ -5,6 +5,7 @@ alias ref=". ~/.bashrc"
 # For work
 #------------------------------------------------------------------------------
 alias br="brazil"
+alias bws="brazil ws"
 
 
 # Shortcuts
@@ -18,7 +19,7 @@ alias d="cd"
 alias c="cd"
 alias lsd="ls -d"
 alias sra="source activate tguoenv"
-alias q="myc"
+alias q="quirk"
 # alias m="myc"
 
 

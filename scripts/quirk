@@ -135,7 +135,7 @@ list_all() {
 quirk() {
     if [ ! -f $te ]; then
         echo 'q_bookmarks file has not been created yet'
-        echo 'making file now...'
+        echo "making file now at $te..."
         touch $te
     fi
 
