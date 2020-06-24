@@ -5,7 +5,6 @@
 # if [ $PATH
 # export PATH=$PATH:~/bin
 # chmod +x ~/bin/lol
-#This is ME
 alias gac="git add .; git commit -m"
 alias dsk="cd /cygdrive/c/users/fiskh/desktop"
 alias py="python3"
@@ -18,8 +17,11 @@ alias lsd="ls -d */"
 alias version="cat /etc/*-release"
 alias sra="source activate tguoenv"
 
-#This is ME
-PATH=$PATH:~/dotfiles
+if echo $PATH | grep -q "/dotfiles"; then
+    echo "path already good"
+else
+    PATH=$PATH:~/dotfiles
+fi
 
 . ~/dotfiles/scripts/quirk
 # Controls colors * $PS1 (prompt for shell)

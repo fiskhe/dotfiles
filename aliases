@@ -1,12 +1,14 @@
 #!/bin/bash
 
+source ~/.personal_aliases
 alias ref=". ~/.bashrc"
 
 # For work
 #------------------------------------------------------------------------------
 alias br="brazil"
 alias bws="brazil ws"
-
+alias bb="brazil-build"
+alias bbr="brazil-build release"
 
 # Shortcuts
 #------------------------------------------------------------------------------
@@ -20,9 +22,6 @@ alias c="cd"
 alias lsd="ls -d"
 alias sra="source activate tguoenv"
 alias q="quirk"
-# alias m="myc"
-alias br="brazil"
-
 
 # Git aliases.
 #------------------------------------------------------------------------------
@@ -76,6 +75,7 @@ alias tk="tmux kill-session -t" # followed by a session name in order to kill th
 #alias ls="ls --color" 
 # The below I need for ... macCC
 alias ls="ls -G" 
+
 # Vim aliases.
 alias v="vim"
 
@@ -84,10 +84,6 @@ alias open="cygstart.exe"
 
 # Setup
 alias vundleinstall="git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim"
-
-# Common location aliases.
-alias dsk="cd /mnt/c/Users/fiskh/Desktop"
-alias dsk="cd /cygdrive/c/users/fiskh/desktop"
 
 # file shortcuts... consider creating this function within quirk/myc
 alias hist="vim ~/.bash_history"
