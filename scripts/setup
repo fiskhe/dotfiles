@@ -50,3 +50,13 @@ else
     echo "Vundle already installed"
 fi
 
+=======
+# -  check if symlink already before appending source whatever
+
+# Set up vim vundle plugin manager
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
+
+# Make sure vim is as updated as can be
+# sudo apt-get update
+# sudo apt-get install vim

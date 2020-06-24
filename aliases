@@ -21,6 +21,7 @@ alias lsd="ls -d"
 alias sra="source activate tguoenv"
 alias q="quirk"
 # alias m="myc"
+alias br="brazil"
 
 
 # Git aliases.
