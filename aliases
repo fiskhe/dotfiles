@@ -23,6 +23,11 @@ alias lsd="ls -d"
 alias sra="source activate tguoenv"
 alias q="quirk"
 
+# Movement
+#------------------------------------------------------------------------------
+alias k="cd .."
+alias kk="cd ../.."
+
 # Git aliases.
 #------------------------------------------------------------------------------
 alias gac="git add .; git commit -m"

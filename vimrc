@@ -188,6 +188,9 @@ nnoremap B ^
 " Shortcut to show console
 nnoremap <Leader>c :!<CR>
 
+" Shotcut for ctrl-w for vim split screen stuff
+nnoremap <Leader>w <C-W>
+
 "LaTeX shortcuts
 " Compile to pdf with latexmk
 nnoremap <Leader>ll :Latexmk<CR>
