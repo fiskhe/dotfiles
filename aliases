@@ -15,18 +15,21 @@ alias bbr="brazil-build release"
 alias py="python3"
 alias py2="python"
 alias l="ls"
-alias la="ls -al"
+alias la="ls -a"
+alias lal="ls -al"
 alias ltr="ls -ltr"
-alias d="cd"
-alias c="cd"
-alias lsd="ls -d"
+# alias lsd="ls -d"
+alias lsd="ls -d */"
 alias sra="source activate tguoenv"
-alias q="quirk"
+alias version="cat /etc/*-release"
 
 # Movement
 #------------------------------------------------------------------------------
 alias k="cd .."
 alias kk="cd ../.."
+alias d="cd"
+alias c="cd"
+alias q="quirk"
 
 # Git aliases.
 #------------------------------------------------------------------------------

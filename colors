@@ -12,6 +12,8 @@ AlmostVeryNoSalmon='\[\e[38;5;230m\]'
 VeryLightBlue='\[\e[38;5;159m\]'
 ExceedinglyLightBlue='\[\e[38;5;158m\]'
 
+ExitColor='\e[m'
+
  # Template for a 256 color thing
 color='\[\e[38;5;m\]'
 
@@ -57,7 +59,9 @@ if [ "$color_prompt" = yes ]; then
         PS1=''$NiceGreen'${prompt_break}\n'$Periwinkle'['$NiceRed'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle'] '$lenny' haha \n'$NiceRed'$ '$VeryLightSalmon''
         
     else
-        PS1=''$NiceBlue'${prompt_break}\n'$Periwinkle'['$NiceGreen'\u'$NiceBlue'@'$NiceOrange'\h'$NiceBlue':'$Salmon'\w'$Periwinkle']>~\n'$NiceRed'$ '$AlmostVeryNoSalmon''
+        # PS1=''$NiceBlue'${prompt_break}\n'$Periwinkle'['$NiceGreen'\u'$NiceBlue'@'$NiceOrange'\h '$VeryLightSalmon'\d, \t'$NiceBlue': '$Salmon'\w'$Periwinkle']>~\n'$NiceRed'$ '$AlmostVeryNoSalmon''
+        PS1=''$NiceBlue'${prompt_break}\n'$Periwinkle'['$NiceGreen'\u'$NiceBlue'@'$NiceOrange'\h '$VeryLightSalmon'\d, \t'$NiceBlue': '$Salmon'\w'$Periwinkle']>~\n'$NiceRed'$ '$ExitColor''
+        # TODO figure out how to get regular auto colored text back
         
     fi
 fi

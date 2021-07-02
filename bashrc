@@ -5,17 +5,6 @@
 # if [ $PATH
 # export PATH=$PATH:~/bin
 # chmod +x ~/bin/lol
-alias gac="git add .; git commit -m"
-alias dsk="cd /cygdrive/c/users/fiskh/desktop"
-alias py="python3"
-alias py2="python"
-alias l="ls"
-alias la="ls -al"
-alias ref=". ~/.bashrc"
-alias d="cd"
-alias lsd="ls -d */"
-alias version="cat /etc/*-release"
-alias sra="source activate tguoenv"
 
 if echo $PATH | grep -q "/dotfiles"; then
     echo "path already good"
