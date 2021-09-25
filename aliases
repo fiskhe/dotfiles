@@ -22,6 +22,7 @@ alias ltr="ls -ltr"
 alias lsd="ls -d */"
 alias sra="source activate tguoenv"
 alias version="cat /etc/*-release"
+alias here="explorer.exe ."
 
 # Movement
 #------------------------------------------------------------------------------

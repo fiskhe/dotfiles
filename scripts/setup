@@ -20,6 +20,23 @@ else
     ln -s ~/dotfiles/bashrc ~/.bashrc
 fi
 
+if [ -f ~/.inputrc ]; then
+    echo ".inputrc exists already"
+    if grep -q "dotfiles/inputrc" ~/.inputrc; then
+        echo -e "\tdotfiles/inputrc is already sourced in existing .inputrc"
+    elif [ -L ~/.inputrc ]; then
+        echo -e "\t~/.inputrc is a symlink. Let's leave that alone for now."
+    else
+        echo -e "\tAppending command to source dotfiles/inputrc to end of existing .inputrc..."
+        echo "source ~/dotfiles/inputrc" >> ~/.inputrc
+        echo -e "\tdone"
+    fi
+    echo -e "\t moving on..."
+else
+    echo ".inputrc does not exist... creating soft symlink to dotfiles/inputrc"
+    ln -s ~/dotfiles/inputrc ~/.inputrc
+fi
+
 if [ -f ~/.vimrc ]; then
     echo ".vimrc exists already"
     if grep -q "dotfiles/vimrc" ~/.vimrc; then

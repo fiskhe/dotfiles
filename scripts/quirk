@@ -168,7 +168,7 @@ quirk() {
 }
 
 
-#TODO:
+# TODO:
 # - clean up the -y in q_remove
 # - change q l to q ls (better to avoid confusion)
 # - -l to list directories right after cd-ing there
