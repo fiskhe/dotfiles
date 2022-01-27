@@ -103,15 +103,17 @@ go_to() {
     couple_str=$(grep ^"$bookmark"" ## " $te)
  
     # splits #couple_str by ' ## ' into array
-    local IFS=' ## '
+    # will only work if IFS is a character, not a string!!!
+    # local IFS=' ## '
 
     # The below is an alternate way to get the same result
     # read -ra couple <<< $couple_str
-    couple=( $couple_str )
+    # couple=( $couple_str )
 
-    # Someday, figure out why it's [2] instead of [1]
-    # and why [1] gives me an empty value or something like that
-    go_path="${couple[2]}"
+    # TODO: maybe it would be better to reformat bookmarks file with bookmark_name#/path/to/book/mark instead
+    local IFS='#'
+    couple=(${couple_str//" ## "/#})
+    go_path="${couple[1]}"
 
     if [ -z "$go_path" ]; then # Path is no path! What a way to go
         echo "The bookmark, $bookmark, does not exist."

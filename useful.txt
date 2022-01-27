@@ -1,0 +1,2 @@
+# I need the blow sometimes to do npm start because of some weird WSL thing
+export NODE_OPTIONS=--openssl-legacy-provider

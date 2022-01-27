@@ -48,6 +48,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " PLUGINS GALORE BELOW!
+
+" vim support for julia
+Plugin 'JuliaEditorSupport/julia-vim'
+
 Plugin 'scrooloose/nerdtree'	" A tree explorer plugin for vim
 
 " Syntax checker
@@ -82,6 +86,9 @@ Plugin 'hdima/python-syntax'
 
 Plugin 'pangloss/vim-javascript'
 
+" Rust stuff
+Plugin 'rust-lang/rust.vim'
+
 " Python folding simply or sth!
 " Plugin 'tmhedberg/SimpylFold'
 
@@ -102,19 +109,20 @@ hi IndentGuidesOdd ctermbg=237
 "
 "PROPER SYNTAX HIGHLIGHTING
 hi Argument ctermfg=36 cterm=italic
+autocmd BufRead,BufNewFile *.jl :set filetype=julia
 "Javscript
-autocmd FileType javascript syn keyword Special console
-autocmd FileType javascript syn match Number '\d'
-autocmd FileType javascript syn match Special '[0-9a-zA-Z]' contained
-autocmd FileType javascript syn match MethodCall '\.\([0-9a-zA-Z]\{-}\)(' contains=Special "MethodCall does not exist
-autocmd FileType javascript syn match Operator '?\|:' contained
-autocmd FileType javascript syn match TernaryOperator '?.\{-}:' contains=Operator "TernaryOperator does not exist
-autocmd FileType javascript syn match Operator '&\|<\|>\||\|!\|+\|=\|-'
-autocmd FileType javascript syn match Argument '\<.\{-}\>' contained
-autocmd FileType javascript syn match ArgComma ',' contained
-" autocmd FileType javascript syn keyword Number 'function' contained
-autocmd FileType javascript syn match ArgumentsPlural '(\<.\{-}\>\{-})\s\{-}{' contains=ALL,Number
-autocmd FileType javascript syn match Number '\d'
+" autocmd FileType javascript syn keyword Special console
+" autocmd FileType javascript syn match Number '\d'
+" autocmd FileType javascript syn match Special '[0-9a-zA-Z]' contained
+" autocmd FileType javascript syn match MethodCall '\.\([0-9a-zA-Z]\{-}\)(' contains=Special "MethodCall does not exist
+" autocmd FileType javascript syn match Operator '?\|:' contained
+" autocmd FileType javascript syn match TernaryOperator '?.\{-}:' contains=Operator "TernaryOperator does not exist
+" autocmd FileType javascript syn match Operator '&\|<\|>\||\|!\|+\|=\|-'
+" autocmd FileType javascript syn match Argument '\<.\{-}\>' contained
+" autocmd FileType javascript syn match ArgComma ',' contained
+" " autocmd FileType javascript syn keyword Number 'function' contained
+" autocmd FileType javascript syn match ArgumentsPlural '(\<.\{-}\>\{-})\s\{-}{' contains=ALL,Number
+" autocmd FileType javascript syn match Number '\d'
 
 
 " For syntastic plugin
