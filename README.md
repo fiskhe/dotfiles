@@ -33,4 +33,3 @@ A script to provide autocompletion for Dimensional Mechanics' CLI tool, neopulse
 Switches caps lock key to CTRL, and vice versa on Windows computers.
 
 ##### Credit goes to my brother for giving me his bashrc to start off with
-###### (Which is where basically all of the git aliases and functions came from. I don't actually use git enough to have made/needed those (yet).)
