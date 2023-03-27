@@ -29,6 +29,16 @@ gacs() {
     git commit -m $2
 }
 
+# use Windows' git when working under C:\ drive
+# credit to: https://markentier.tech/posts/2020/10/faster-git-under-wsl2/#solution
+git() {
+  if $(pwd -P | grep -q "^\/mnt\/c\/*"); then
+    git.exe "$@"
+  else
+    command git "$@"
+  fi
+}
+
 # Alex coded
 #------------------------------------------------------------------------------
 ggo() {

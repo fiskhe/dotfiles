@@ -144,6 +144,8 @@ quirk() {
         echo 'q_bookmarks file has not been created yet'
         echo "making file now at $te..."
         touch $te
+        echo "adding bookmark for dotfiles..."
+        q add dot ~/dotfiles
     fi
 
     case $1 in

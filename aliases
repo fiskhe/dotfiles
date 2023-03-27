@@ -65,6 +65,7 @@ alias gap="git apply"
 alias gs.="git status ."
 
 alias gcm="git commit -m"
+alias gmlkg="git merge lkg"
 
 # git grep aliases, as historical reference.
 alias gren="LC_ALL=C; git grep --color -n"

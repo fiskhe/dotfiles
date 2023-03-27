@@ -11,6 +11,7 @@ set sidescrolloff=5
 set noerrorbells
 set ignorecase
 set hlsearch
+set nofixendofline " COme on vim
 
 " wow I didn't know you needed this on some machines
 set backspace=indent,eol,start
